@@ -3,8 +3,10 @@ Project for ORIE 4741, Fall 2016
 
 Team Member:
 
-Trevor McDonald (tdm67@cornell.edu)
+Trevor McDonald (tdm67)
+
 Anqi Wang (aw735)
+
 Yi He (yh354)
 
   Value Investing is a century long investment theory proposed by Ben Graham and David Dodd
