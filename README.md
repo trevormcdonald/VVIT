@@ -1,4 +1,4 @@
-# VVIT
+# Verify Value Investing Theory:A Quantitative Approach
 Project for ORIE 4741, Fall 2016
 
 Team Member:
