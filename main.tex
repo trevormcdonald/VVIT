@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{ORIE 4741 Team Project Proposal\\  Verify Value Investing Theory:A Quantitative Approach}
+
+\author{Team: Anqi Wang, Yi He, Trevor McDonald}
+\date{September 2016}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={150mm,257mm},
+ left=30mm,
+ top=20mm,
+ }
+\setlength{\parskip}{1em}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\indent
+
+Value Investing is a century long investment theory proposed by Ben Graham and David Dodd in 1928. It basically says that “markets systematically undervalue companies with high cash flow but large book values and stable businesses”. If what this theory claims is true, a big challenge on current efficient market theory is posed and a profitable investment opportunity is implied.
+
+For the past decades, this theory has been advocated by many famous investors including Warrent Buffet, Laurence Tisch and Michael Larson, but whether their success is due to this theory or luck is up to further research and analysis.
+\section{Formal definition of our project’s topic}
+\indent
+
+In this project, we would verify Value Investing Theory through a quantitative approach: we will analysis history record of stock price to find out whether companies with high cash flow, large book values and stable businesses are systematically undervalued in the long run.
+
+\section{Tentative approach}
+\indent
+
+We plan to set two groups of companies: one set includes growth companies, which means they have big growth potential but has relatively smaller cash flow and higher P/E ratio. The other set includes value companies, which has opposite attributes. These two sets can be selected based on fundamental analysis and comparison with their industries’ average. We will track the their price history, calculate summary index,make regressions to find out the return of price based on their fundamentals and see if the relation between their stock price and fundamentals corresponds to Value Investing Theory and holds in the long run.
+
+\section{Prospective Data source}
+\indent
+
+We plan to extract data from Bloomberg terminal in Johnson School’s library, output to Excel through Bloomberg’s built-in functions and analyze these data via Julia or R.
+
+
+\end{document}
