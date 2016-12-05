@@ -9,6 +9,7 @@ from sklearn.linear_model import Lasso, LassoCV, Ridge, LinearRegression, HuberR
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.svm import LinearSVC
 
 #fin_data=pd.read_csv('cleaned.csv')
 price = pd.read_csv("data/cleaned_Price.csv")
@@ -60,6 +61,9 @@ all_testing_data =  reduce((lambda x, y: np.column_stack((x,y))), test_list )
 all_labels = np.ravel(price_change.values[:, 1:])
 train_labels = np.ravel(price_change.values[0:train_limit, 1:])
 test_labels = np.ravel(price_change.values[train_limit:, 1:])
+
+bin_train_labels= (np.ravel(price_change.values[0:train_limit, 1:]) > 0).astype(int)
+bin_test_labels= (np.ravel(price_change.values[train_limit:, 1:]) > 0).astype(int)
 
 
 print(train_labels.shape)
@@ -269,9 +273,22 @@ def make_huber():
 	#R2 score: -0.00995293878596
 	#Mean square error for model: 0.000361527098453
 
+def make_svm():
+	X= all_training_data
+	y=bin_train_labels
+	clf = LinearSVC()
+	clf.fit(X,y)
+	print("SVM score: ", clf.score(X, y))
+
+	print("Training Statistics:")
+	make_prediction(clf, all_training_data, bin_train_labels)
+
+	print("Testing Statistics:")
+	make_prediction(clf, all_testing_data, bin_test_labels)
+
 
 
 
 	
 if __name__ == '__main__':
-	make_huber()
+	make_svm()
