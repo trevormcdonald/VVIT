@@ -4,7 +4,7 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 
-from sklearn.linear_model import Lasso, LassoCV
+from sklearn.linear_model import Lasso, LassoCV, Ridge
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import mean_squared_error
@@ -132,7 +132,32 @@ def make_lasso_cv():
 	plt.show()
 
 
+def make_ridge():
+	X=all_training_data
+	y=train_labels
+	n_alphas = 200
+	alphas = np.logspace(-6, 6, n_alphas)
+	clf = Ridge(fit_intercept=False)
+
+	coefs = []
+	for a in alphas:
+		clf.set_params(alpha=a)
+		clf.fit(X, y)
+		coefs.append(clf.coef_)
+
+	ax = plt.gca()
+
+	ax.plot(alphas, coefs)
+	ax.set_xscale('log')
+	ax.set_xlim(ax.get_xlim())  # reverse axis
+	plt.xlabel('alpha')
+	plt.ylabel('weights')
+	plt.title('Ridge coefficients as a function of the regularization')
+	plt.axis('tight')
+	plt.show()
+
+
 
 	
 if __name__ == '__main__':
-	make_lasso_cv()
+	make_ridge()
